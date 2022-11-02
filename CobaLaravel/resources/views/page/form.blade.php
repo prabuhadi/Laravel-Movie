@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Create New Account</title>
-    </head>
-    <body>
-        <h1>Buat Account Baru</h1>
+@extends('layout.master')
+
+@section('title')
+    Form
+@endsection
+
+@section('judul1')
+    Halaman SignUp
+@endsection
+
+@section('judul2')
+    Untuk mendaftar SanberCode, Silahkan isi formulir kami
+@endsection
+
+@section('content')
+    
+<h1>Buat Account Baru</h1>
         <hr>
         <h2>Sign Up Form</h2>
         <form action="/welcome" method="POST">
@@ -64,5 +74,6 @@
             <br>
             <button href=/welcome>Sign Up</button>   
         </form>
-    </body>
-</html>
+
+@endsection
+

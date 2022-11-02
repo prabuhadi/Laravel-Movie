@@ -14,7 +14,17 @@ use App\Http\Controllers\AuthController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/',[HomeController::class, 'home']);
+// Coba laravel
+Route::get('/home',[HomeController::class, 'home']);
 Route::get('/regist', [AuthController::class, 'regist']);
 Route::post('/welcome', [AuthController::class, 'welcome']);
+
+// Membuat template dengan laravel
+Route::get('/table', function()
+{
+    return view('page.table');
+});
+Route::get('/data-table', function()
+{
+    return view('page.data-table');
+});
