@@ -36,7 +36,7 @@
                 <option value="indonesia">Indonesia</option>
                 <option value="malaysia">Malaysia</option>
                 <option value="singapore">Singapore</option>
-                <option value="thailnad">Thailand</option>
+                <option value="thailand">Thailand</option>
                 <option value="vietnam">Vietnam</option>
                 <option value="camboja">Camboja</option>
                 <option value="laos">Laos</option>

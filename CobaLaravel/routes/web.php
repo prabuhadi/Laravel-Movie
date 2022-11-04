@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CastController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,21 @@ Route::get('/data-table', function()
 {
     return view('page.data-table');
 });
+
+// Membuat CRUD
+
+//Create Data
+Route::get('/cast/create', [CastController::class, 'create']);
+Route::post('/cast', [CastController::class, 'store']);
+
+
+//Read Data
+Route::get('/cast', [CastController::class, 'index']);
+Route::get('/cast/{id}', [CastController::class, 'show']);
+
+//Update Data
+Route::get('/cast/{id}/edit', [CastController::class, 'edit']);
+Route::put('/cast/{id}', [CastController::class, 'update']);
+
+//Delete Data
+Route::delete('/cast/{id}', [CastController::class, 'destroy']);
