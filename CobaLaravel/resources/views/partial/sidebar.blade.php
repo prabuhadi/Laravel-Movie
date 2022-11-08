@@ -81,9 +81,15 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{asset('template/pages/widgets.html')}}" class="nav-link">
+                <a href="/cast" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>View Widgets</p>
+                  <p>View Cast</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/genre" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Genre</p>
                 </a>
               </li>
             </ul>

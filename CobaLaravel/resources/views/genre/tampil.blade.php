@@ -1,43 +1,40 @@
 @extends('layout.master')
 
 @section('title')
-    Halaman List Cast
+    Halaman List Genre
 @endsection
 
 @section('judul1')
-    List Cast
+    List Genre
 @endsection
 
 @section('judul2')
-    Silahkan gunakan tambah jika ingin menambahkan cast
+    Silahkan gunakan tambah jika ingin menambahkan genre
 @endsection
 
 @section('content')
-    <a href="/cast/create" class='btn btn-primary btn-sm'>Tambah</a>
+    <a href="/genre/create" class='btn btn-primary btn-sm'>Tambah</a>
         <br>
         <br>
             <table class="table">
                 <thead class="thead-light">
                 <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Nama</th>
-                    <th scope="col">Umur</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col">Genre</th>
+                    <th scope="col" width="280px">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                    @forelse ($cast as $key=>$value)
+                    @forelse ($genre as $key=>$value)
                         <tr>
                             <td>{{$key + 1}}</th>
                             <td>{{$value->nama}}</td>
-                            <td>{{$value->umur}}</td>
                             <td>
-                                <form action="/cast/{{$value->id}}" method="POST">
+                                <form action="/genre/{{$value->id}}" method="POST">
                                     @method('delete')
                                     @csrf
-                                    <a href="/cast/{{$value->id}}" class='btn btn-primary btn-sm'>Detail Cast</a>
-                                    <a href="/cast/{{$value->id}}/edit" class='btn btn-warning btn-sm'>Edit Cast</a>
-                                    <input type="submit" value="Remove Cast" class="btn btn-danger btn-sm">
+                                    <a href="/genre/{{$value->id}}/edit" class='btn btn-primary btn-sm'>Edit Genre</a>
+                                    <input type="submit" value="Remove Genre" class="btn btn-danger btn-sm">
                                 </form>
                             </td>
                         </tr>

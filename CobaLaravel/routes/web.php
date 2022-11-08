@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CastController;
+use App\Http\Controllers\GenreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,11 @@ Route::put('/cast/{id}', [CastController::class, 'update']);
 
 //Delete Data
 Route::delete('/cast/{id}', [CastController::class, 'destroy']);
+
+//For Genre
+Route::get('/genre/create', [GenreController::class, 'create']);
+Route::post('/genre', [GenreController::class, 'store']);
+Route::get('/genre', [GenreController::class, 'index']);
+Route::get('/genre/{id}/edit', [GenreController::class, 'edit']);
+Route::put('/genre/{id}', [GenreController::class, 'update']);
+Route::delete('/genre/{id}', [GenreController::class, 'destroy']);
