@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CastController;
 use App\Http\Controllers\GenreController;
+use App\Http\Controllers\FilmController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,7 @@ use App\Http\Controllers\GenreController;
 |
 */
 // Coba laravel
+Route::get('/',[HomeController::class, 'home']);
 Route::get('/home',[HomeController::class, 'home']);
 Route::get('/regist', [AuthController::class, 'regist']);
 Route::post('/welcome', [AuthController::class, 'welcome']);
@@ -56,3 +58,6 @@ Route::get('/genre', [GenreController::class, 'index']);
 Route::get('/genre/{id}/edit', [GenreController::class, 'edit']);
 Route::put('/genre/{id}', [GenreController::class, 'update']);
 Route::delete('/genre/{id}', [GenreController::class, 'destroy']);
+
+// CRUD Film 
+Route::resource('film', FilmController::class);
