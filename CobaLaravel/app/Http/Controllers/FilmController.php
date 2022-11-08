@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Genre;
+use App\Models\Film;
 
 class FilmController extends Controller
 {
@@ -14,7 +15,9 @@ class FilmController extends Controller
      */
     public function index()
     {
-        //
+        $film =Film::all();
+
+        return view('film.tampil', ['film' => $film]);
     }
 
     /**
@@ -24,7 +27,9 @@ class FilmController extends Controller
      */
     public function create()
     {
-        //
+        $genre = Genre::all();
+
+        return view('film.tambah', ['genre' => $genre]);
     }
 
     /**
@@ -35,7 +40,27 @@ class FilmController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'judul' => 'required',
+            'ringkasan' => 'required',
+            'tahun' => 'required',
+            'poster' => 'required|mimes:jpg, jpeg, png|max:2048',
+            'genre_id' => 'required'
+        ]);
+
+        $imageName = time().'.'.$request->poster->extension();  
+   
+        $request->poster->move(public_path('image'), $imageName);
+
+        Film::create([
+            'judul' => $request['judul'],
+            'ringkasan' => $request['ringkasan'],
+            'tahun' => $request['tahun'],
+            'poster' => $imageName,
+            'genre_id' => $request['genre_id']
+        ]);
+
+        return redirect('/film');
     }
 
     /**
