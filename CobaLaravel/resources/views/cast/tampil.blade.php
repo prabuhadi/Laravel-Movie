@@ -13,7 +13,10 @@
 @endsection
 
 @section('content')
+    @auth
     <a href="/cast/create" class='btn btn-primary btn-sm'>Tambah</a>
+        
+    @endauth
         <br>
         <br>
             <table class="table">
@@ -36,9 +39,12 @@
                                     @method('delete')
                                     @csrf
                                     <a href="/cast/{{$value->id}}" class='btn btn-primary btn-sm'>Detail Cast</a>
+                                    @auth
                                     <a href="/cast/{{$value->id}}/edit" class='btn btn-warning btn-sm'>Edit Cast</a>
                                     <input type="submit" value="Remove Cast" class="btn btn-danger btn-sm">
+                                    @endauth
                                 </form>
+                                    
                             </td>
                         </tr>
                     @empty

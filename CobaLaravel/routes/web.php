@@ -59,10 +59,13 @@ Route::get('/genre/{id}/edit', [GenreController::class, 'edit']);
 Route::put('/genre/{id}', [GenreController::class, 'update']);
 Route::delete('/genre/{id}', [GenreController::class, 'destroy']);
 
-// CRUD Film 
-Route::resource('film', FilmController::class);
+// Auth untuk movie
+Route::group(['middleware' => ['auth']], function () {
+    // CRUD Film 
+    Route::resource('film', FilmController::class);
+});
 
 // Auth dan Middleware 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

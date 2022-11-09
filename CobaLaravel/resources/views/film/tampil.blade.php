@@ -13,7 +13,10 @@
 @endsection
 
 @section('content')
+    @auth
     <a href="/film/create" class='btn btn-primary btn-sm my-3'>Tambah</a>
+    
+    @endauth
 
     <div class="row">
         @forelse ($film as $item)
@@ -24,18 +27,18 @@
                     <h3 class="text-primary">{{$item->judul}}</h3>
                     <p class="card-text">{{ Str::limit($item->ringkasan, 60)}}</p>
                     <a href="/film/{{$item->id}}" class="btn btn-info btn-sm btn-block">Detail Movie</a>
-                    <div class="row mt-3">
-                        <div class="col">
-                            <a href="/film/{{$item->id}}/edit" class="btn btn-warning btn-sm btn-block">Edit</a>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <a href="/film/{{$item->id}}/edit" class="btn btn-warning btn-sm btn-block">Edit</a>
+                            </div>
+                            <div class="col">
+                                <form action="/film/{{$item->id}}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <input type="submit" value="Delete" class="btn btn-danger btn-sm btn-block">
+                                </form>
+                            </div>
                         </div>
-                        <div class="col">
-                            <form action="/film/{{$item->id}}" method="post">
-                                @csrf
-                                @method('delete')
-                                <input type="submit" value="Delete" class="btn btn-danger btn-sm btn-block">
-                            </form>
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>

@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\DB;
 
 class CastController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index', 'show');
+    }
+
     public function create()
     {
         return view('cast.create');

@@ -13,7 +13,10 @@
 @endsection
 
 @section('content')
+    @auth
     <a href="/genre/create" class='btn btn-primary btn-sm'>Tambah</a>
+        
+    @endauth
         <br>
         <br>
             <table class="table">
@@ -21,7 +24,10 @@
                 <tr>
                     <th scope="col">No</th>
                     <th scope="col">Genre</th>
+                    @auth
+                        
                     <th scope="col" width="280px">Actions</th>
+                    @endauth
                 </tr>
                 </thead>
                 <tbody>
@@ -29,6 +35,7 @@
                         <tr>
                             <td>{{$key + 1}}</th>
                             <td>{{$value->nama}}</td>
+                            @auth
                             <td>
                                 <form action="/genre/{{$value->id}}" method="POST">
                                     @method('delete')
@@ -37,6 +44,8 @@
                                     <input type="submit" value="Remove Genre" class="btn btn-danger btn-sm">
                                 </form>
                             </td>
+                                
+                            @endauth
                         </tr>
                     @empty
                         <tr colspan="3">
