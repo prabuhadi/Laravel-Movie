@@ -61,3 +61,8 @@ Route::delete('/genre/{id}', [GenreController::class, 'destroy']);
 
 // CRUD Film 
 Route::resource('film', FilmController::class);
+
+// Auth dan Middleware 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
